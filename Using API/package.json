@@ -1,0 +1,46 @@
+{
+  "name": "biblia-obs",
+  "version": "1.0.0",
+  "description": "Ferramenta da Biblia para a aplicação de Streaming OBS",
+  "main": "main.js",
+  "scripts": {
+    "start": "nodemon --exec electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "dist:all": "npm-run-all -p dist:*",
+    "dist:mac": "electron-builder --mac",
+    "dist:windows": "electron-builder --windows",
+    "dist:linux": "electron-builder --linux",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "build": {
+    "appId": "biblia.for.obs",
+    "productName": "Bíblia OBS",
+    "mac": {
+      "category": "public.app-category.tools"
+    },
+    "win": {
+      "icon": "assets/icon/.icon-ico/icon.ico",
+      "target": "portable"
+    }
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^8.2.1",
+    "electron-builder": "^22.4.1",
+    "nodemon": "^2.0.3"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  }
+}

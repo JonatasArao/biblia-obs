@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Chamando Estilos -->
+    <link rel="stylesheet" href="./style.css">
+    <title>Biblia OBS</title>
+</head>
+<body>
+    <!-- Span bible - Onde Mostra o Versículo -->
+    <span id="bible"></span>
+
+    <!-- Chamando Socket -->
+    <script src="./js/socket.io.slim.js"></script>
+    <script>
+        // Iniciando Socket.io
+        var socket = io('http://localhost:3000');
+        window.addEventListener('DOMContentLoaded', () => {
+            // Obtendo variavél da página
+            let bible = document.getElementById('bible');
+
+            // Escutando Socket
+            socket.on('showVerse', function(e){
+                // Mostrando na tela
+                bible.textContent = `${e.book} ${e.chapterNumber}:${e.verseNumber} - ${e.verse}`;
+            });
+            socket.on('style', function(e){
+                // Carregando Estilos
+                let { backgroundColor, color, fontSize, textAlign } = e;
+                document.body.style.backgroundColor = backgroundColor;
+                bible.style.color = color;
+                bible.style.fontSize = fontSize;
+                bible.style.textAlign = textAlign;
+            });
+        });
+    </script>
+</body>
+</html>

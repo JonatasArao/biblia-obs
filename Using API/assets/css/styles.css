@@ -1,0 +1,30 @@
+/* Áreas arrastáveis */
+.draggable{
+    -webkit-user-select: none;
+    -webkit-app-region: drag
+}
+.not-draggable{
+    -webkit-app-region: no-drag;
+}
+.btn-header{
+    -webkit-app-region: no-drag;
+    cursor: default!important;
+}
+
+/* Configurando Borda e Fundo */
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0; /* Space from this element (entire page) and others*/
+    padding: 0; /*space from content and border*/
+    border: solid #dee2e6;
+    border-width: thin;
+    border-radius: .5rem!important;
+    overflow:hidden;
+    display:block;
+    box-sizing: border-box;
+    background-color: #ffffff00;
+}
+.bg-app{
+    background-color: #eceff1;
+}

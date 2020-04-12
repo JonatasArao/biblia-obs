@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- Permitindo acesso à API e Servidor Socket -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; connect-src 'self' https://bibleapi.co ws: http://localhost:3000 ;">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'; connect-src 'self' https://bibleapi.co ws: http://localhost:3000 ;">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Chamando Estilos CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link  rel="stylesheet" href="assets/css/fonts.min.css">
+    <title>Bíblia OBS</title>
+  </head>
+  
+  <body>
+    <!-- Header - Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow draggable py-3">
+      <div>
+        <span class="navbar-brand text-center">Bíblia OBS</span>
+      </div>
+      <div class="ml-auto">
+        <button id="btnMinimize" class="btn btn-secondary rounded-circle shadow-sm btn-header"><i class="fas fa-minus"></i></button>
+        <button id="btnClose" class="btn btn-danger rounded-circle shadow-sm btn-header"><i class="fas fa-times"></i></button>
+      </div>
+    </nav>
+
+    <!-- Aplicativo -->
+    <div class="container-fluid bg-app h-100 py-4">
+      <div class="row">
+        <div class="col-md-6 my-auto">
+          <!-- Endereço Servidor Local -->
+          <p class="text-center"><b>Endereço:</b> http://localhost:3000/BibliaOBS</p>
+
+          <!-- Form de Controle -->
+          <form>
+            <div class="form-row">
+              <!-- Escolher Versão -->
+              <div class="form-group col-7 mx-auto">
+                <label for="version">Versão</label>
+                <select class="form-control shadow-sm" id="version">
+                  <option value="nvi">NVI - Nova Versão Internacional</option>
+                  <option value="ra">RA - Almeida Revista e Atualizada</option>
+                  <option value="acf">ACF - Almeida Corrigida Fiel</option>
+                </select>
+              </div>
+            </div>
+    
+            <div class="form-row">
+              <!-- Escolher Livro -->
+              <div class="form-group col-6 mx-auto">
+                <label for="book">Livro</label>
+                <select class="form-control shadow-sm" id="book">
+                </select>
+              </div>
+      
+              <div class="form-group col-2 mx-auto">
+                <!-- Escolher Capitulo -->
+                <label for="chapter">Capitulo</label>
+                <select class="form-control shadow-sm" id="chapter">
+                </select>
+              </div>        
+      
+              <div class="form-group col-2 mx-auto">
+                <!-- Escolher Versículo -->
+                <label for="verse">Versículo</label>
+                <select class="form-control shadow-sm" id="verse">
+                </select>
+              </div>
+            </div>
+    
+            <div class="form-row">
+              <!-- Botão para mostrar na tela -->
+              <button type="button" class="btn btn-secondary rounded-pill shadow mx-auto" id="sendScreen">Mostrar na Tela <i class="mx-1 fas fa-tv"></i></button>
+            </div>
+          </form>
+      
+          <div class="row my-4">
+            <!-- Controle de Versículos -->
+            <div class="mx-auto">
+              <button class="btn btn-dark rounded-pill shadow-sm" id="prevVerse"> <i class="fas fa-caret-left"></i> </button><span class="px-2 h5" id="actualVerse">...</span><button class="btn btn-dark rounded-pill shadow-sm" id="nextVerse"> <i class="fas fa-caret-right"></i> </button>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-6 my-auto">
+          <form>
+            <!-- Form de Estílos -->
+            <div class="form-row">
+              <div class="form-group col-3 py-auto">
+                <!-- Escolher Cor de Fundo -->
+                <label for="backgroundColor">Cor de Fundo</label>
+                <input type="text" class="form-control shadow-sm" id="backgroundColor">
+              </div>
+    
+              <div class="form-group col-3 py-auto">
+                <!-- Escolher Cor do Texto -->
+                <label for="textColor">Cor do Texto</label>
+                <input type="text" class="form-control shadow-sm" id="textColor">
+              </div>
+    
+              <div class="form-group col-3 py-auto">
+                <!-- Escolher Tamanho(px) -->
+                <label for="textSize">Tamanho (px)</label>
+                <input type="number" class="form-control shadow-sm" id="textSize">
+              </div>
+    
+              <div class="form-group col-3 py-auto">
+                <!-- Escolher Alinhamento -->
+                <label for="textAlign">Alinhamento</label>
+                <select class="form-control shadow-sm" id="textAlign">
+                  <option selected value="center">Centro</option>
+                  <option value="left">Esquerda</option>
+                  <option value="right">Direita</option>
+                  <option value="justify">Justificado</option>
+                </select>
+              </div>
+            </div>
+    
+            <div class="form-row">
+              <!-- Botão para enviar estilos para tela -->
+              <button type="button" class="btn btn-secondary rounded-pill shadow mx-auto" id="sendStyle">Enviar Estilos <i class="mx-1 fas fa-palette"></i></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chamando Scripts -->
+    <script src="assets/js/axios.min.js"></script>
+    <script src="assets/js/socket.io.slim.js"></script>
+    <script src="./renderer.js"></script>
+  </body>
+</html>
