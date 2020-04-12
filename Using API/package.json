@@ -13,6 +13,10 @@
     "dist:linux": "electron-builder --linux",
     "postinstall": "electron-builder install-app-deps"
   },
+  "repository" : {
+    "type" : "git",
+    "url": "https://github.com/Jonatas-Arao/biblia-obs"
+  },
   "build": {
     "appId": "biblia.for.obs",
     "productName": "Bíblia OBS",
@@ -24,13 +28,10 @@
       "target": "portable"
     }
   },
-  "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "Bible",
+    "OBS",
+    "Streaming Tool"
   ],
   "author": "GitHub",
   "license": "CC0-1.0",
