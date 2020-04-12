@@ -1,6 +1,8 @@
 # Bíblia OBS
 Bíblia OBS é uma ferramenta criada para auxiliar na exibição dos versos da Bíblia em uma transmissão ao-vivo via OBS
 
+## [Download - Clique Aqui](https://github.com/Jonatas-Arao/biblia-obs/releases)
+
 ## Dependências
 
 * [Socket.io](https://socket.io/)
