@@ -27,11 +27,12 @@
             });
             socket.on('style', function(e){
                 // Carregando Estilos
-                let { backgroundColor, color, fontSize, textAlign } = e;
+                let { backgroundColor, color, fontSize, textAlign, fontFamily } = e;
                 document.body.style.backgroundColor = backgroundColor;
                 bible.style.color = color;
-                bible.style.fontSize = fontSize;
+                bible.style.fontSize = fontSize + "px";
                 bible.style.textAlign = textAlign;
+                bible.style.fontFamily = fontFamily;
             });
         });
     </script>

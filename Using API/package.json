@@ -1,6 +1,6 @@
 {
   "name": "biblia-obs",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Ferramenta da Biblia para a aplicação de Streaming OBS",
   "main": "main.js",
   "scripts": {
@@ -13,8 +13,8 @@
     "dist:linux": "electron-builder --linux",
     "postinstall": "electron-builder install-app-deps"
   },
-  "repository" : {
-    "type" : "git",
+  "repository": {
+    "type": "git",
     "url": "https://github.com/Jonatas-Arao/biblia-obs"
   },
   "build": {
@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "express": "^4.17.1",
+    "font-list": "^1.2.11",
     "socket.io": "^2.3.0"
   }
 }

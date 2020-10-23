@@ -3,7 +3,7 @@ var socket = io('http://localhost:3000');
 const authToken = ''; //Insira o Token de Autenticação aqui
  // Obtendo acesso à API
 const api = axios.create({
-    baseURL: ' https://bibleapi.co/api',
+    baseURL: 'https://www.abibliadigital.com.br/api/',
     headers: { 'Authorization': authToken }
 });
 
@@ -106,7 +106,7 @@ window.addEventListener('DOMContentLoaded', () => {
             verse.value = actualVerse - 1;
             changeVerse('change');
         }
-        else if((actualBook > 1) && (actualChapter  == 1) && (actualVerse  == 1)){
+        else if((actualBook > 0) && (actualChapter  == 1) && (actualVerse  == 1)){
             book.options.selectedIndex = actualBook - 1;
             changeBook('prev');
         }
@@ -125,7 +125,7 @@ window.addEventListener('DOMContentLoaded', () => {
             verse.value = actualVerse + 1;
             changeVerse('change');
         }
-        else if((actualBook < book.length) && (actualChapter == chapter.length) && (actualVerse  == verse.length)){
+        else if((actualBook < book.length - 1) && (actualChapter == chapter.length) && (actualVerse  == verse.length)){
             book.options.selectedIndex = actualBook + 1;
             changeBook('next');
         }
@@ -158,15 +158,33 @@ window.addEventListener('DOMContentLoaded', () => {
     let sendStyle = document.getElementById('sendStyle');
     let textColor = document.getElementById('textColor');
     let textAlign = document.getElementById('textAlign');
+    let font = document.getElementById('font');
+
+    // Função para gerar JSON de Estilo
+
+    function getStyle(){
+        return {
+            backgroundColor: backgroundColor.value,
+            color: textColor.value,
+            fontSize: textSize.value,
+            textAlign: textAlign.value,
+            fontFamily: font.value
+        };
+    }
 
     // Adicionando Evento sendStyle - Mandar para http://localhost:3000/BibliaOBS via Socket.io
     sendStyle.addEventListener('click', () => {
-        let styles = {
-            backgroundColor: backgroundColor.value,
-            color: textColor.value,
-            fontSize: textSize.value + 'px',
-            textAlign: textAlign.value
-        }
-        socket.emit('style', styles);
+        socket.emit('style', getStyle());
+    });
+    saveStyle.addEventListener('click', () => {
+        localStorage.setItem('styles', JSON.stringify(getStyle()));
+    });
+    loadStyle.addEventListener('click', () => {
+        let styles = JSON.parse(localStorage.getItem('styles'));
+        backgroundColor.value = styles.backgroundColor;
+        textColor.value = styles.color;
+        textSize.value = styles.fontSize;
+        textAlign.value = styles.textAlign;
+        font.value = styles.fontFamily;
     });
 });
