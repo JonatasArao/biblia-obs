@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <!-- Permitindo acesso à API e Servidor Socket -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; connect-src 'self' https://bibleapi.co ws: http://localhost:3000 ;">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'; connect-src 'self' https://bibleapi.co ws: http://localhost:3000 ;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline';connect-src 'self' https://www.abibliadigital.com.br ws: http://localhost:3000 ;">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline';connect-src 'self' https://www.abibliadigital.com.br ws: http://localhost:3000 ;">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Chamando Estilos CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -15,13 +15,13 @@
   
   <body>
     <!-- Header - Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow draggable py-3">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow draggable py-0">
       <div>
         <span class="navbar-brand text-center">Bíblia OBS</span>
       </div>
       <div class="ml-auto">
-        <button id="btnMinimize" class="btn btn-secondary rounded-circle shadow-sm btn-header"><i class="fas fa-minus"></i></button>
-        <button id="btnClose" class="btn btn-danger rounded-circle shadow-sm btn-header"><i class="fas fa-times"></i></button>
+        <button id="btnMinimize" class="btn btn-sm btn-secondary rounded-circle shadow-sm btn-header"><i class="fas fa-minus"></i></button>
+        <button id="btnClose" class="btn btn-sm btn-danger rounded-circle shadow-sm btn-header"><i class="fas fa-times"></i></button>
       </div>
     </nav>
 
@@ -87,6 +87,11 @@
           <form>
             <!-- Form de Estílos -->
             <div class="form-row">
+              <div class="form-group col-12 py-auto">
+                <label for="font">Fonte</label>
+                <select class="form-control shadow-sm" id="font">
+                </select>
+              </div>
               <div class="form-group col-3 py-auto">
                 <!-- Escolher Cor de Fundo -->
                 <label for="backgroundColor">Cor de Fundo</label>
@@ -119,7 +124,9 @@
     
             <div class="form-row">
               <!-- Botão para enviar estilos para tela -->
+              <button type="button" class="btn btn-sm btn-secondary rounded-pill shadow mx-auto" id="saveStyle">Salvar <i class="fas fa-save"></i></button>
               <button type="button" class="btn btn-secondary rounded-pill shadow mx-auto" id="sendStyle">Enviar Estilos <i class="mx-1 fas fa-palette"></i></button>
+              <button type="button" class="btn btn-sm btn-secondary rounded-pill shadow mx-auto" id="loadStyle">Carregar <i class="fas fa-box-open"></i></button>
             </div>
           </form>
         </div>

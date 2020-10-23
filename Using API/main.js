@@ -7,13 +7,14 @@ const path = require('path')
 function createWindow () {
   const mainWindow = new BrowserWindow({
     width: 550,
-    height: 595,
+    height: 630,
     maximizable: false,
     frame: false,
     transparent: true,
     icon: path.join(__dirname, '/assets/icon/icon.png'),
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      preload: path.join(__dirname, 'preload.js'),
+      devTools: false
     }
   });
 
