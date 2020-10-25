@@ -1,6 +1,6 @@
 {
   "name": "biblia-obs",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Ferramenta da Biblia para a aplicação de Streaming OBS",
   "main": "main.js",
   "scripts": {
@@ -33,7 +33,7 @@
     "OBS",
     "Streaming Tool"
   ],
-  "author": "GitHub",
+  "author": "Jonatas Arão de Carvalho Neves",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^8.2.1",

@@ -6,15 +6,16 @@ const path = require('path')
 // Função createWindow - Criar janelaBrowserWindow
 function createWindow () {
   const mainWindow = new BrowserWindow({
-    width: 550,
-    height: 630,
+    width: 470,
+    height: 440,
     maximizable: false,
     frame: false,
     transparent: true,
+    resizable: false,
     icon: path.join(__dirname, '/assets/icon/icon.png'),
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
-      devTools: false
+      devTools: true
     }
   });
 

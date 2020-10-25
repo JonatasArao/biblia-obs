@@ -168,7 +168,7 @@ window.addEventListener('DOMContentLoaded', () => {
             color: textColor.value,
             fontSize: textSize.value,
             textAlign: textAlign.value,
-            fontFamily: font.value
+            fontFamily: `"${font.value}"`
         };
     }
 
@@ -185,6 +185,6 @@ window.addEventListener('DOMContentLoaded', () => {
         textColor.value = styles.color;
         textSize.value = styles.fontSize;
         textAlign.value = styles.textAlign;
-        font.value = styles.fontFamily;
+        font.value = styles.fontFamily.replace(/"/g,'');
     });
 });
